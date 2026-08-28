@@ -1,0 +1,21 @@
+schema:
+    node User:
+        properties:
+            name: string(pattern="user_{id}")
+            active: bool
+
+    node Namespace:
+        properties:
+            name: string(pattern="ns_{id}")
+            quota: int(range=1..100)
+            sth: datetime
+
+    edge OWNS:
+        from User to Namespace
+        cardinality: 1..3
+
+generate:
+    GENERATE 100
+    FOR MongoDB
+    WHERE 40% User, 60% Namespace
+    USE OWNS: Shared

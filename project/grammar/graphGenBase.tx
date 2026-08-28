@@ -1,0 +1,97 @@
+GraphGenModel:
+    'schema:'
+        nodes+=NodeDef
+        edges+=EdgeDef
+    'generate:'
+        spec=GenerateSpec
+;
+
+NodeDef:
+    'node' name=ID ':'
+        'properties:'
+            properties+=PropertyDef
+;
+
+EdgeDef:
+    'edge' name=ID ':'
+        'from' source=[NodeDef|ID] 'to' target=[NodeDef|ID]
+        ('cardinality' ':' cardinality=CardinalityDef)?
+        ('constraint' ':' constraints+=ConstraintKind)?
+        ('properties:' properties+=PropertyDef)?
+;
+
+PropertyDef:
+    name=ID ':' type=PropertyType
+;
+
+PropertyType:
+    IntType | StringType | EnumType | FloatType | BoolType | DateType
+;
+
+IntType:
+    'int' ('(' 'range' '=' min=INT '..' max=INT ')')?
+;
+
+FloatType:
+    'float' ('(' 'range' '=' min=FLOAT '..' max=FLOAT ')')?
+;
+
+StringType:
+    'string' ('(' 'pattern' '=' pattern=STRING ')')?
+;
+
+EnumType:
+    'enum' '(' values+=STRING[','] ')'
+;
+
+BoolType:
+    kind='bool'
+;
+
+DateType:
+    kind='datetime'
+;
+
+CardinalityDef:
+    min=INT '..' max=CardMax
+;
+
+CardMax:
+    INT | '*'
+;
+
+ConstraintKind:
+    'acyclic' | 'unique' | 'no_self_loop'
+;
+
+GenerateSpec:
+    'GENERATE' total=DataAmount
+    'FOR' targets+=DBTarget[',']
+    'WHERE' percentages+=ClassPercentage[',']
+    'USE' sharing+=SharingSpec[',']
+    ('ADD' 'Index')?
+;
+
+DataAmount:
+    value=INT unit=DataUnit?
+;
+
+DataUnit:
+    'k' | 'M' | 'B'
+;
+
+DBTarget:
+    'Neo4J' | 'PostgreSQL' | 'MongoDB'
+;
+
+ClassPercentage:
+    percent=INT '%' target=[NodeDef|ID]
+;
+
+SharingSpec:
+    target=[EdgeDef|ID] ':' mode=SharingMode
+;
+
+SharingMode:
+    'Shared' | 'NotShared'
+;

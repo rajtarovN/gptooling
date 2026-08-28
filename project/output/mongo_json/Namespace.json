@@ -1,0 +1,8 @@
+[
+{"_id": "Namespace_0", "name": "ns_0", "quota": 29, "sth": "2021-07-25T00:00:00"},
+{"_id": "Namespace_1", "name": "ns_1", "quota": 95, "sth": "2021-02-23T00:00:00"},
+{"_id": "Namespace_2", "name": "ns_2", "quota": 87, "sth": "2026-02-11T00:00:00"},
+{"_id": "Namespace_3", "name": "ns_3", "quota": 12, "sth": "2026-08-15T00:00:00"},
+{"_id": "Namespace_4", "name": "ns_4", "quota": 55, "sth": "2020-05-10T00:00:00"},
+{"_id": "Namespace_5", "name": "ns_5", "quota": 4, "sth": "2021-01-18T00:00:00"}
+]

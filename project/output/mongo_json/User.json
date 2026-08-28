@@ -1,0 +1,6 @@
+[
+{"_id": "User_0", "name": "user_0", "active": true},
+{"_id": "User_1", "name": "user_1", "active": true},
+{"_id": "User_2", "name": "user_2", "active": false},
+{"_id": "User_3", "name": "user_3", "active": true}
+]

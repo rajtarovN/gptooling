@@ -1,0 +1,10 @@
+[
+{"source_id": "User_0", "target_id": "Namespace_1"},
+{"source_id": "User_1", "target_id": "Namespace_4"},
+{"source_id": "User_1", "target_id": "Namespace_0"},
+{"source_id": "User_1", "target_id": "Namespace_1"},
+{"source_id": "User_2", "target_id": "Namespace_5"},
+{"source_id": "User_2", "target_id": "Namespace_4"},
+{"source_id": "User_2", "target_id": "Namespace_3"},
+{"source_id": "User_3", "target_id": "Namespace_3"}
+]
